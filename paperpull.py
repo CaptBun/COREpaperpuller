@@ -85,10 +85,10 @@ def format_apa7(paper): # Function to format paper data in APA 7 style
 
 def run_search(reset_offset=True): # Function to run the search based on user input
     global current_query, current_sort_by, current_sort_order, current_year_from, current_year_to, current_offset
+    query = keyword_entry.get()  # <-- Move this to the top!
     if not query:
         messagebox.showwarning("Input required", "Please enter keywords before searching.")
         return
-    query = keyword_entry.get()
     sort_by = "publishedDate" if sort_var.get() else "relevance"
     sort_order = "desc"
     year_from = year_from_entry.get().strip()
